@@ -1,0 +1,10 @@
+﻿const express = require("express");
+const { body } = require("express-validator");
+const { signup, login, getMe, updateProfile } = require("../controllers/authController");
+const { protect } = require("../middleware/auth");
+const router = express.Router();
+router.post("/signup", [body("name").trim().notEmpty().withMessage("Name required"), body("email").isEmail().withMessage("Valid email required").normalizeEmail(), body("password").isLength({ min: 6 }).withMessage("Min 6 chars")], signup);
+router.post("/login", [body("email").isEmail().normalizeEmail(), body("password").notEmpty()], login);
+router.get("/me", protect, getMe);
+router.put("/profile", protect, updateProfile);
+module.exports = router;

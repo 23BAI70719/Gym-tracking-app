@@ -1,0 +1,11 @@
+﻿const express = require("express");
+const { body } = require("express-validator");
+const { createWorkout, getWorkouts, deleteWorkout, getStats } = require("../controllers/workoutController");
+const { protect } = require("../middleware/auth");
+const router = express.Router();
+router.use(protect);
+router.get("/stats", getStats);
+router.post("/", [body("exerciseName").trim().notEmpty(), body("sets").isInt({ min: 1 }), body("reps").isInt({ min: 1 }), body("weight").isFloat({ min: 0 })], createWorkout);
+router.get("/", getWorkouts);
+router.delete("/:id", deleteWorkout);
+module.exports = router;

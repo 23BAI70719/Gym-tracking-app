@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Times New Roman',serif; font-size:12pt; color:#000; background:white; }
+.page { width:210mm; min-height:297mm; padding:18mm 22mm 25mm 22mm; page-break-after:always; position:relative; }
+.page:last-child { page-break-after:auto; }
+.logo-row { display:flex; justify-content:space-between; align-items:center; border-bottom:3px solid #cc0000; padding-bottom:10px; margin-bottom:12px; }
+.cu-logo h1 { font-size:16pt; font-weight:900; color:#cc0000; }
+.cu-logo p { font-size:8pt; color:#555; }
+.naac { background:#cc0000; color:white; padding:5px 10px; border-radius:4px; text-align:center; }
+.naac .grade { font-size:16pt; font-weight:900; }
+.naac p { font-size:7pt; }
+.qs { border:2px solid #003366; padding:5px 8px; border-radius:4px; text-align:center; }
+.qs .qs-text { font-size:12pt; font-weight:900; color:#003366; }
+.qs p { font-size:7pt; color:#003366; }
+.mini-header { display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #cc0000; padding-bottom:8px; margin-bottom:12px; font-size:9pt; }
+.mini-header .cu { font-size:12pt; font-weight:bold; color:#cc0000; }
+.course-center { text-align:center; margin:12px 0; }
+.course-center h2 { font-size:14pt; font-weight:bold; }
+.course-center h3 { font-size:12pt; font-weight:bold; color:#333; margin-top:4px; }
+.exp-title { text-align:center; font-size:14pt; font-weight:bold; margin:14px 0; background:#cc0000; color:white; padding:10px; border-radius:5px; }
+.sec { font-size:12pt; font-weight:bold; margin:14px 0 6px 0; color:#cc0000; border-left:4px solid #cc0000; padding-left:10px; }
+p { font-size:11pt; line-height:1.8; margin-bottom:8px; text-align:justify; }
+ul { margin:6px 0 10px 24px; }
+ul li { font-size:11pt; line-height:1.8; margin-bottom:3px; }
+ol { margin:6px 0 10px 24px; }
+ol li { font-size:11pt; line-height:1.8; margin-bottom:3px; }
+table { width:100%; border-collapse:collapse; margin:10px 0; font-size:10pt; }
+th { background:#cc0000; color:white; padding:8px 10px; text-align:left; border:1px solid #aaa; }
+td { padding:7px 10px; border:1px solid #ccc; vertical-align:top; line-height:1.6; }
+tr:nth-child(even) td { background:#fdf5f5; }
+.sbox { border-left:4px solid #cc0000; padding:10px 14px; background:#fff8f8; margin:10px 0; border-radius:0 6px 6px 0; }
+.ibox { border:1px solid #ddd; padding:10px 14px; background:#f9f9f9; margin:10px 0; border-radius:6px; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:10px 0; }
+.cbox { border:1px solid #ddd; padding:10px; border-radius:6px; background:#fafafa; }
+.cbox h5 { color:#cc0000; border-bottom:1px solid #eee; padding-bottom:4px; margin-bottom:6px; font-size:11pt; font-weight:bold; }
+code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-family:'Courier New',monospace; font-size:10pt; border:1px solid #ddd; }
+.cb { background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; font-family:'Courier New',monospace; font-size:9pt; margin:10px 0; line-height:1.6; white-space:pre; }
+.footer { position:absolute; bottom:10mm; left:22mm; right:22mm; text-align:center; font-size:9pt; color:#888; border-top:1px solid #ddd; padding-top:5px; }
+.toc { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dotted #ccc; font-size:11pt; }
+.bp { background:#28a745; color:white; padding:2px 7px; border-radius:3px; font-size:9pt; font-weight:bold; }
+.bg { background:#0066cc; color:white; padding:2px 7px; border-radius:3px; font-size:9pt; font-weight:bold; }
+.bpu { background:#ff8800; color:white; padding:2px 7px; border-radius:3px; font-size:9pt; font-weight:bold; }
+.bd { background:#cc0000; color:white; padding:2px 7px; border-radius:3px; font-size:9pt; font-weight:bold; }
+h4 { font-size:11pt; font-weight:bold; margin:10px 0 5px 0; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0; }
+.scard { border:1px solid #ddd; border-radius:8px; padding:12px; text-align:center; background:#fafafa; }
+.scard .num { font-size:22pt; font-weight:900; color:#cc0000; }
+.scard .lbl { font-size:8pt; color:#666; text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+.phase { background:#cc0000; color:white; padding:6px 14px; border-radius:4px; font-weight:bold; font-size:12pt; margin:14px 0 8px 0; display:inline-block; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+  <div class="logo-row">
+    <div class="cu-logo"><h1>CHANDIGARH UNIVERSITY</h1><p>Discover. Learn. Empower.</p></div>
+    <div class="naac"><p>NAAC</p><div class="grade">A+</div><p>GRADE</p><p style="font-size:7pt">ACCREDITED UNIVERSITY</p></div>
+    <div class="qs"><div class="qs-text">QS</div><p style="font-weight:bold">WORLD UNIVERSITY<br>RANKINGS</p><p style="color:#cc0000;font-weight:bold">RANKED 1ST</p><p>AMONGST PVT. UNIVERSITIES IN INDIA</p></div>
+  </div>
+  <div class="course-center">
+    <h2>Course Name: Software Engineering</h2>
+    <h3>Course Code: 23CSH-374</h3>
+  </div>
+  <div style="text-align:center;margin:20px 0;"><h2 style="font-size:18pt;font-weight:bold;">PROJECT REPORT</h2></div>
+  <div style="margin:16px 0;"><p style="font-size:13pt;font-weight:bold;">PROJECT: GymTracker — Full-Stack Fitness Progress Tracker</p></div>
+  <div style="text-align:center;background:linear-gradient(135deg,#1a1a2e,#16213e);color:white;padding:20px;border-radius:10px;margin:16px 0;">
+    <div style="font-size:28pt;">🏋️</div>
+    <h2 style="font-size:18pt;font-weight:900;color:white;margin:8px 0;">GymTracker</h2>
+    <p style="font-size:11pt;color:#aaa;">Full-Stack Fitness Progress Tracker</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;">
+      <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:6px;"><div style="font-size:7pt;color:#aaa;">BACKEND</div><div style="font-weight:bold;color:white;font-size:10pt;">Node.js+Express</div></div>
+      <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:6px;"><div style="font-size:7pt;color:#aaa;">DATABASE</div><div style="font-weight:bold;color:white;font-size:10pt;">MongoDB</div></div>
+      <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:6px;"><div style="font-size:7pt;color:#aaa;">FRONTEND</div><div style="font-weight:bold;color:white;font-size:10pt;">React+Tailwind</div></div>
+      <div style="background:rgba(255,255,255,0.1);padding:8px;border-radius:6px;"><div style="font-size:7pt;color:#aaa;">AUTH</div><div style="font-weight:bold;color:white;font-size:10pt;">JWT+bcrypt</div></div>
+    </div>
+  </div>
+  <div style="margin-top:30px;">
+    <p style="font-size:13pt;font-weight:bold;margin-bottom:6px;">NAME : JATIN</p>
+    <p style="font-size:13pt;font-weight:bold;margin-bottom:6px;">UID: 23BAi70719</p>
+    <p style="font-size:13pt;font-weight:bold;">SECTION: 23-CSE</p>
+  </div>
+  <div class="footer">GymTracker Project Report | Jatin | UID: 23BAi70719 | Chandigarh University | 23CSH-374</div>
+</div>
+
+<!-- PAGE 2: TABLE OF CONTENTS -->
+<div class="page">
+  <div class="mini-header"><div class="cu">CHANDIGARH UNIVERSITY</div><div><strong>Jatin</strong> | UID: 23BAi70719 | Software Engineering | 23CSH-374</div></div>
+  <div class="exp-title">TABLE OF CONTENTS</div>
+  <div style="margin-top:14px;border-left:3px solid #cc0000;padding-left:16px;">
+    <div class="toc"><span><strong>1.</strong> Project Overview</span><span>3</span></div>
+    <div class="toc"><span><strong>2.</strong> Objectives</span><span>4</span></div>
+    <div class="toc"><span><strong>3.</strong> Technology Stack</span><span>5</span></div>
+    <div class="toc"><span><strong>4.</strong> System Architecture</span><span>6</span></div>
+    <div class="toc"><span><strong>5.</strong> Folder Structure</span><span>7</span></div>
+    <div class="toc"><span><strong>6.</strong> Database Design</span><span>8</span></div>
+    <div class="toc"><span><strong>7.</strong> Module Description</span><span>9</span></div>
+    <div class="toc"><span><strong>8.</strong> API Reference</span><span>10</span></div>
+    <div class="toc"><span><strong>9.</strong> User Interface</span><span>11</span></div>
+    <div class="toc"><span><strong>10.</strong> Security Implementation</span><span>12</span></div>
+    <div class="toc"><span><strong>11.</strong> Business Logic</span><span>13</span></div>
+    <div class="toc"><span><strong>12.</strong> Sample Data</span><span>14</span></div>
+    <div class="toc"><span><strong>13.</strong> Setup &amp; Installation</span><span>15</span></div>
+    <div class="toc"><span><strong>14.</strong> Testing Summary</span><span>16</span></div>
+    <div class="toc"><span><strong>15.</strong> Limitations &amp; Future Enhancements</span><span>17</span></div>
+    <div class="toc"><span><strong>16.</strong> Conclusion</span><span>18</span></div>
+    <div class="toc"><span><strong>17.</strong> SDLC — Requirements Analysis</span><span>19</span></div>
+    <div class="toc"><span><strong>18.</strong> Functional Requirements</span><span>20</span></div>
+    <div class="toc"><span><strong>19.</strong> Non-Functional Requirements</span><span>21</span></div>
+    <div class="toc"><span><strong>20.</strong> SDLC — System Design</span><span>22</span></div>
+    <div class="toc"><span><strong>21.</strong> ER Diagram &amp; Schema</span><span>23</span></div>
+    <div class="toc"><span><strong>22.</strong> Frontend Implementation</span><span>24</span></div>
+    <div class="toc"><span><strong>23.</strong> Backend Implementation</span><span>25</span></div>
+    <div class="toc"><span><strong>24.</strong> Auth Module Code</span><span>26</span></div>
+    <div class="toc"><span><strong>25.</strong> Workout Module Code</span><span>27</span></div>
+    <div class="toc"><span><strong>26.</strong> Dashboard &amp; Charts</span><span>28</span></div>
+    <div class="toc"><span><strong>27.</strong> BMI Calculator &amp; Goal Tracker</span><span>29</span></div>
+    <div class="toc"><span><strong>28.</strong> Black Box Testing</span><span>30</span></div>
+    <div class="toc"><span><strong>29.</strong> White Box Testing</span><span>31</span></div>
+    <div class="toc"><span><strong>30.</strong> Selenium Automation Testing</span><span>32</span></div>
+    <div class="toc"><span><strong>31.</strong> Deployment Guide</span><span>33</span></div>
+    <div class="toc"><span><strong>32.</strong> Project Screenshots</span><span>34</span></div>
+    <div class="toc"><span><strong>33.</strong> References &amp; Signatures</span><span>35</span></div>
+  </div>
+  <div class="footer">GymTracker Project Report | Jatin | UID: 23BAi70719 | Chandigarh University | 23CSH-374</div>
+</div>
+
+<!-- PAGE 3: PROJECT OVERVIEW -->
+<div class="page">
+  <div class="mini-header"><div class="cu">CHANDIGARH UNIVERSITY</div><div><strong>Jatin</strong> | UID: 23BAi70719 | Software Engineering | 23CSH-374</div></div>
+  <div class="sec">1. Project Overview</div>
+  <p><strong>GymTracker</strong> is a comprehensive full-stack web application developed using the MERN stack (MongoDB, Express.js, React 18, Node.js) that enables fitness enthusiasts to systematically track their workout progress, monitor physical improvements, and achieve their fitness goals through data-driven insights.</p>
+  <p>The application addresses a common challenge faced by gym-goers — the lack of a structured, digital system to record and analyze workout data over time. Traditional methods such as paper logs or generic spreadsheets fail to provide meaningful visualizations or personalized insights. GymTracker solves this by offering an intuitive, responsive web interface backed by a secure RESTful API.</p>
+  <p>The backend follows the MVC (Model-View-Controller) architectural pattern with Express.js handling routing, Mongoose ODM managing MongoDB interactions, and JWT middleware securing protected endpoints. The frontend is built with React 18 using functional components and hooks, with Tailwind CSS providing a modern dark-themed responsive UI.</p>
+  <div class="stats">
+    <div class="scard"><div class="num">8</div><div class="lbl">API Endpoints</div></div>
+    <div class="scard"><div class="num">2</div><div class="lbl">DB Models</div></div>
+    <div class="scard"><div class="num">5</div><div class="lbl">Pages</div></div>
+    <div class="scard"><div class="num">10+</div><div class="lbl">Components</div></div>
+  </div>
+  <div class="sec">Key Features</div>
+  <ul>
+    <li><strong>Secure Authentication:</strong> JWT-based login/signup with bcrypt password hashing (salt rounds: 12)</li>
+    <li><strong>Workout Logging:</strong> Record exercise name, sets, reps, weight, date, and optional notes</li>
+    <li><strong>Progress Charts:</strong> Weekly (7-day) and monthly (30-day) bar and line charts using Chart.js</li>
+    <li><strong>Dashboard Statistics:</strong> Total workouts, weekly count, monthly count, top 5 exercises</li>
+    <li><strong>BMI Calculator:</strong> Calculate BMI from height/weight with category classification, saved to profile</li>
+    <li><strong>Goal Tracker:</strong> Set weekly workout targets with animated progress bar and insights</li>
+    <li><strong>Workout History:</strong> Filter by date range and exercise name, grouped by date</li>
+    <li><strong>Exercise Autocomplete:</strong> Smart suggestions while typing exercise names</li>
+    <li><strong>Volume Preview:</strong> Live calculation of total volume (sets x reps x weight) while logging</li>
+    <li><strong>Responsive Design:</strong> Works seamlessly on mobile, tablet, and desktop</li>
+  </ul>
+  <div class="footer">GymTracker Project Report | Jatin | UID: 23BAi70719 | Chandigarh University | 23CSH-374</div>
+</div>
+
+<!-- PAGE 4: OBJECTIVES -->
+<div class="page">
+  <div class="mini-header"><div class="cu">CHANDIGARH UNIVERSITY</div><div><strong>Jatin</strong> | UID: 23BAi70719 | Software Engineering | 23CSH-374</div></div>
+  <div class="sec">2. Objectives</div>
+  <ul>
+    <li>Build a centralized digital platform to log and track gym workout sessions</li>
+    <li>Implement secure JWT-based authentication with bcrypt password hashing</li>
+    <li>Allow users to record exercise name, sets, reps, weight, date, and notes per session</li>
+    <li>Provide interactive weekly and monthly progress charts using Chart.js</li>
+    <li>Display dashboard statistics: total workouts, weekly count, monthly count, top exercises</li>
+    <li>Implement BMI calculator with category classification saved to user profile</li>
+    <li>Allow users to set and track personalized fitness goals with progress visualization</li>
+    <li>Enable workout history filtering by date range and exercise name</li>
+    <li>Protect all workout routes with JWT middleware — user-specific data only</li>
+    <li>Build a responsive, mobile-friendly dark-themed UI using Tailwind CSS</li>
+    <li>Follow MVC architecture and RESTful API design principles throughout</li>
+    <li>Use MongoDB aggregation pipelines for real-time analytics and chart data</li>
+  </ul>
+  <div class="sec">Problem Statement</div>
+  <div class="sbox">
+    <p>Design and develop a full-stack web application that allows users to:</p>
+    <ul>
+      <li>Register and securely authenticate using email and password</li>
+      <li>Log workout sessions with detailed exercise information (sets, reps, weight)</li>
+      <li>View progress through interactive charts and statistics on a dashboard</li>
+      <li>Calculate and track Body Mass Index (BMI) saved to their profile</li>
+      <li>Set and monitor personalized fitness goals with measurable progress</li>
+      <li>Filter and review workout history by date range and exercise type</li>
+    </ul>
+  </div>
+  <div class="sec">Motivation</div>
+  <ul>
+    <li><strong>Lack of structured tracking:</strong> Most gym-goers rely on memory or paper notes which are unreliable</li>
+    <li><strong>No progress visualization:</strong> Without charts, it is hard to see improvement trends over weeks/months</li>
+    <li><strong>Goal accountability:</strong> Users need a system to set and track fitness goals with measurable progress</li>
+    <li><strong>Health metrics:</strong> BMI tracking helps users understand their body composition changes</li>
+    <li><strong>Accessibility:</strong> A web-based solution accessible from any device without installation</li>
+  </ul>
+  <div class="footer">GymTracker Project Report | Jatin | UID: 23BAi70719 | Chandigarh University | 23CSH-374</div>
+</div>
+
+<!-- PAGE 5: TECHNOLOGY STACK -->
+<div class="page">
+  <div class="mini-header"><div class="cu">CHANDIGARH UNIVERSITY</div><div><strong>Jatin</strong> | UID: 23BAi70719 | Software Engineering | 23CSH-374</div></div>
+  <div class="sec">3. Technology Stack</div>
+  <table>
+    <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+    <tr><td>Backend Framework</td><td>Node.js + Express.js 4.18.2</td><td>REST API server, routing, middleware, error handling</td></tr>
+    <tr><td>Database</td><td>MongoDB + Mongoose 8.0.3</td><td>NoSQL document storage, schema validation, aggregation pipelines</td></tr>
+    <tr><td>Frontend</td><td>React 18.2.0 (Vite 5.0.8)</td><td>UI components, routing, state management with hooks</td></tr>
+    <tr><td>CSS Framework</td><td>Tailwind CSS 3.4.0</td><td>Responsive dark-themed UI, utility-first styling</td></tr>
+    <tr><td>Charts</td><td>Chart.js 4.4.1 + react-chartjs-2</td><td>Bar and line charts for progress visualization</td></tr>
+    <tr><td>HTTP Client</td><td>Axios 1.6.2</td><td>API calls from frontend with JWT interceptors</td></tr>
+    <tr><td>Routing</td><td>React Router DOM 6.21.0</td><td>Client-side navigation and protected routes</td></tr>
+    <tr><td>Authentication</td><td>JWT (jsonwebtoken 9.0.2)</td><td>Stateless token-based auth, 7-day expiry</td></tr>
+    <tr><td>Password Security</td><td>bcryptjs 2.4.3</td><td>Password hashing with salt rounds of 12</td></tr>
+    <tr><td>Validation</td><td>express-validator 7.0.1</td><td>Server-side input validation on all API routes</td></tr>
+    <tr><td>CORS</td><td>cors 2.8.5</td><td>Cross-origin resource sharing configuration</td></tr>
+    <tr><td>Environment</td><td>dotenv 16.3.1</td><td>Environment variable management (.env file)</td></tr>
+    <tr><td>Dev Server</td><td>nodemon 3.0.2</td><td>Auto-restart server on file changes during development</td></tr>
+    <tr><td>Build Tool</td><td>Vite 5.0.8</td><td>Fast frontend build tool with HMR and proxy support</td></tr>
+  </table>
+  <div class="footer">GymTracker Project Report | Jatin | UID: 23BAi70719 | Chandigarh University | 23CSH-374</div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+<div class="hdr"><div><strong>Jatin</strong> | 23BAi70719</div><div class="cu">CHANDIGARH UNIVERSITY</div><div>23CSH-374</div></div>
+<div class="sec">4. System Architecture</div>
+<p>GymTracker follows the MVC (Model-View-Controller) architectural pattern with a clear separation between frontend and backend layers.</p>
+<table>
+<tr><th>Layer</th><th>Component</th><th>Responsibility</th></tr>
+<tr><td>Model</td><td>models/User.js, models/Workout.js</td><td>Mongoose schemas, validation, pre-save hooks</td></tr>
+<tr><td>View</td><td>React Pages + Components</td><td>Render UI, handle user interactions</td></tr>
+<tr><td>Controller</td><td>controllers/authController.js, workoutController.js</td><td>Business logic, MongoDB queries</td></tr>
+<tr><td>Routes</td><td>routes/authRoutes.js, workoutRoutes.js</td><td>API endpoints, validation middleware</td></tr>
+<tr><td>Middleware</td><td>middleware/auth.js</td><td>JWT verification, protect routes</td></tr>
+<tr><td>Config</td><td>config/db.js</td><td>MongoDB connection via Mongoose</td></tr>
+<tr><td>Entry Point</td><td>server/index.js</td><td>Express init, CORS, route registration</td></tr>
+</table>
+<h4>4.1 Request Flow</h4>
+<div class="cb">Browser (React App - localhost:5173)
+    |
+    v
+Axios HTTP Client (JWT interceptor attached)
+    |
+    v
+Express Server (localhost:5000)
+    |
+    +-- CORS Middleware
+    +-- JSON Body Parser
+    +-- /api/auth/signup    [POST] - No auth required
+    +-- /api/auth/login     [POST] - No auth required
+    +-- /api/auth/me        [GET]  - JWT Protected
+    +-- /api/auth/profile   [PUT]  - JWT Protected
+    +-- /api/workouts       [POST] - JWT Protected
+    +-- /api/workouts       [GET]  - JWT Protected
+    +-- /api/workouts/stats [GET]  - JWT Protected
+    +-- /api/workouts/:id   [DEL]  - JWT Protected
+    |
+    v
+MongoDB (gym-tracker database)
+    +-- users collection
+    +-- workouts collection</div>
+<h4>4.2 Authentication Flow</h4>
+<div class="cb">User submits email + password
+    |
+    v
+POST /api/auth/login
+    |
+    +-- Validate input (express-validator)
+    +-- Find user by email in MongoDB
+    +-- Compare password with bcrypt.compare()
+    +-- If match: generate JWT (7 day expiry)
+    +-- Return: { token, user }
+    |
+    v
+Frontend stores token in localStorage
+    |
+    v
+All subsequent requests include: Authorization: Bearer {token}
+    |
+    v
+auth.js middleware verifies token on every protected route</div>
+<div class="ft">Page 6 of 35</div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+<div class="hdr"><div><strong>Jatin</strong> | 23BAi70719</div><div class="cu">CHANDIGARH UNIVERSITY</div><div>23CSH-374</div></div>
+<div class="sec">5. Folder Structure</div>
+<div class="cb">gym-tracker/
+|
++-- server/                          Backend (Node.js + Express)
+|   +-- index.js                     App entry, middleware, routes
+|   +-- .env                         Environment variables
+|   +-- package.json
+|   |
+|   +-- config/
+|   |   +-- db.js                    MongoDB connection
+|   |
+|   +-- models/
+|   |   +-- User.js                  User schema (name,email,password,goals,BMI)
+|   |   +-- Workout.js               Workout schema (userId,exercise,sets,reps,weight)
+|   |
+|   +-- controllers/
+|   |   +-- authController.js        signup, login, getMe, updateProfile
+|   |   +-- workoutController.js     create, getAll, delete, getStats
+|   |
+|   +-- routes/
+|   |   +-- authRoutes.js            /api/auth/* endpoints with validation
+|   |   +-- workoutRoutes.js         /api/workouts/* endpoints
+|   |
+|   +-- middleware/
+|       +-- auth.js                  JWT verification middleware
+|
++-- client/                          Frontend (React 18 + Vite)
+    +-- index.html
+    +-- vite.config.js               Proxy /api to localhost:5000
+    +-- tailwind.config.js
+    +-- postcss.config.js
+    +-- package.json
+    |
+    +-- src/
+        +-- App.jsx                  Routes, AuthProvider, PrivateRoute
+        +-- main.jsx                 ReactDOM entry point
+        +-- index.css                Tailwind + custom component classes
+        |
+        +-- context/
+        |   +-- AuthContext.jsx      Global auth state (user, login, logout)
+        |
+        +-- services/
+        |   +-- api.js               Axios instance + JWT interceptors
+        |
+        +-- utils/
+        |   +-- auth.js              localStorage token/user helpers
+        |   +-- bmi.js               BMI calc, formatDate, calcVolume
+        |
+        +-- components/
+        |   +-- Navbar.jsx           Responsive navbar + mobile menu
+        |   +-- WorkoutCard.jsx      Workout card with delete button
+        |   +-- ChartComponent.jsx   Reusable Bar + Line charts
+        |   +-- StatCard.jsx         Dashboard stat cards
+        |   +-- BMICalculator.jsx    BMI input + category display
+        |   +-- GoalTracker.jsx      Goal setting + progress bar
+        |   +-- Spinner.jsx          Loading spinner component
+        |
+        +-- pages/
+            +-- Login.jsx            Login form with validation
+            +-- Signup.jsx           Registration form
+            +-- Dashboard.jsx        Stats + charts + BMI + goals
+            +-- AddWorkout.jsx       Workout logging form
+            +-- WorkoutHistory.jsx   Filtered workout history</div>
+<div class="ft">Page 7 of 35</div>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+<div class="hdr"><div><strong>Jatin</strong> | 23BAi70719</div><div class="cu">CHANDIGARH UNIVERSITY</div><div>23CSH-374</div></div>
+<div class="sec">6. Database Design</div>
+<p>GymTracker uses MongoDB database named <code>gym-tracker</code> with 2 collections. All collections are defined through Mongoose ODM with schema validation and indexing.</p>
+<h4>6.1 users Collection</h4>
+<p>Stores registered user accounts with profile, BMI, and goal data.</p>
+<table>
+<tr><th>Field</th><th>Type</th><th>Validation</th><th>Description</th></tr>
+<tr><td><code>_id</code></td><td>ObjectId</td><td>Auto</td><td>MongoDB document ID</td></tr>
+<tr><td><code>name</code></td><td>String</td><td>Required, 2-50 chars</td><td>Full name of user</td></tr>
+<tr><td><code>email</code></td><td>String</td><td>Required, unique, regex</td><td>Login email (lowercase)</td></tr>
+<tr><td><code>password</code></td><td>String</td><td>Required, min 6 chars</td><td>bcrypt hashed password</td></tr>
+<tr><td><code>goalType</code></td><td>Enum</td><td>workouts/weight/reps</td><td>Type of fitness goal</td></tr>
+<tr><td><code>goalValue</code></td><td>Number</td><td>Optional</td><td>Target value for goal</td></tr>
+<tr><td><code>goalExercise</code></td><td>String</td><td>Optional</td><td>Exercise for goal tracking</td></tr>
+<tr><td><code>heightCm</code></td><td>Number</td><td>Optional</td><td>Height in cm for BMI</td></tr>
+<tr><td><code>weightKg</code></td><td>Number</td><td>Optional</td><td>Weight in kg for BMI</td></tr>
+<tr><td><code>createdAt</code></td><td>Date</td><td>Auto</td><td>Account creation timestamp</td></tr>
+</table>
+<h4>6.2 workouts Collection</h4>
+<p>Stores individual workout session records. Compound index on userId + date for fast queries.</p>
+<table>
+<tr><th>Field</th><th>Type</th><th>Validation</th><th>Description</th></tr>
+<tr><td><code>_id</code></td><td>ObjectId</td><td>Auto</td><td>MongoDB document ID</td></tr>
+<tr><td><code>userId</code></td><td>ObjectId</td><td>Required, ref: User</td><td>Owner of this workout</td></tr>
+<tr><td><code>exerciseName</code></td><td>String</td><td>Required, max 100</td><td>Name of exercise</td></tr>
+<tr><td><code>sets</code></td><td>Number</td><td>Required, min 1</td><td>Number of sets</td></tr>
+<tr><td><code>reps</code></td><td>Number</td><td>Required, min 1</td><td>Number of reps</td></tr>
+<tr><td><code>weight</code></td><td>Number</td><td>Required, min 0</td><td>Weight in kg</td></tr>
+<tr><td><code>date</code></td><td>Date</td><td>Required</td><td>Date of workout</td></tr>
+<tr><td><code>notes</code></td><td>String</td><td>Optional, max 500</td><td>Additional notes</td></tr>
+<tr><td><code>createdAt</code></td><td>Date</td><td>Auto</td><td>Record creation time</td></tr>
+</table>
+<p><strong>Index:</strong> <code>{ userId: 1, date: -1 }</code> — compound index for fast user-specific date-sorted queries.</p>
+<div class="ft">Page 8 of 35</div>
+</div>
+
+<!-- PAGE 9 -->
+<div class="page">
+<div class="hdr"><div><strong>Jatin</strong> | 23BAi70719</div><div class="cu">CHANDIGARH UNIVERSITY</div><div>23CSH-374</div></div>
+<div class="sec">7. Module Description</div>
+<h4>7.1 Authentication Module — controllers/authController.js</h4>
+<p>Handles user registration, login, profile retrieval, and profile updates. Uses JWT for stateless authentication and bcrypt for password security.</p>
+<table>
+<tr><th>Function</th><th>Route</th><th>Method</th><th>Description</th></tr>
+<tr><td><code>signup()</code></td><td>/api/auth/signup</td><td>POST</td><td>Validates input, checks duplicate email, hashes password, creates user, returns JWT</td></tr>
+<tr><td><code>login()</code></td><td>/api/auth/login</td><td>POST</td><td>Validates credentials, compares bcrypt hash, returns JWT + user object</td></tr>
+<tr><td><code>getMe()</code></td><td>/api/auth/me</td><td>GET</td><td>Returns current user from JWT session</td></tr>
+<tr><td><code>updateProfile()</code></td><td>/api/auth/profile</td><td>PUT</td><td>Updates BMI data and fitness goal settings</td></tr>
+</table>
+<h4>7.2 Workout Module — controllers/workoutController.js</h4>
+<p>Handles all workout CRUD operations and statistics generation using MongoDB aggregation pipelines.</p>
+<table>
+<tr><th>Function</th><th>Route</th><th>Method</th><th>Description</th></tr>
+<tr><td><code>createWorkout()</code></td><td>/api/workouts</td><td>POST</td><td>Validates input, creates workout linked to userId</td></tr>
+<tr><td><code>getWorkouts()</code></td><td>/api/workouts</td><td>GET</td><td>Returns user workouts with date/exercise filters and pagination</td></tr>
+<tr><td><code>deleteWorkout()</code></td><td>/api/workouts/:id</td><td>DELETE</td><td>Verifies ownership, deletes workout by ID</td></tr>
+<tr><td><code>getStats()</code></td><td>/api/workouts/stats</td><td>GET</td><td>Aggregates total, weekly, monthly counts + chart data + top exercises</td></tr>
+</table>
+<h4>7.3 Auth Middleware — middleware/auth.js</h4>
+<p>Protects all workout routes by verifying the JWT token from the Authorization header.</p>
+<table>
+<tr><th>Check</th><th>Response</th></tr>
+<tr><td>No token provided</td><td>401 — Not authorized, no token</td></tr>
+<tr><td>Invalid token signature</td><td>401 — Invalid token</td></tr>
+<tr><td>Token expired</td><td>401 — Token expired, please login again</td></tr>
+<tr><td>User not found in DB</td><td>401 — User no longer exists</td></tr>
+<tr><td>Valid token</td><td>Sets req.user, calls next()</td></tr>
+</table>
+<div class="ft">Page 9 of 35</div>
+</div>
+
+<!-- PAGE 10 -->
+<div class="page">
+<div class="hdr"><div><strong>Jatin</strong> | 23BAi70719</div><div class="cu">CHANDIGARH UNIVERSITY</div><div>23CSH-374</div></div>
+<div class="sec">8. API Reference</div>
+<table>
+<tr><th>Method</th><th>Endpoint</th><th>Auth</th><th>Request Body</th><th>Response</th></tr>
+<tr><td>POST</td><td>/api/auth/signup</td><td>No</td><td>{name, email, password}</td><td>{token, user}</td></tr>
+<tr><td>POST</td><td>/api/auth/login</td><td>No</td><td>{email, password}</td><td>{token, user}</td></tr>
+<tr><td>GET</td><td>/api/auth/me</td><td>JWT</td><td>None</td><td>{user}</td></tr>
+<tr><td>PUT</td><td>/api/auth/profile</td><td>JWT</td><td>{goalType, goalValue, heightCm, weightKg}</td><td>{user}</td></tr>
+<tr><td>POST</td><td>/api/workouts</td><td>JWT</td><td>{exerciseName, sets, reps, weight, date, notes}</td><td>{workout}</td></tr>
+<tr><td>GET</td><td>/api/workouts</td><td>JWT</td><td>?startDate&amp;endDate&amp;exercise&amp;page</td><td>{workouts, total}</td></tr>
+<tr><td>DELETE</td><td>/api/workouts/:id</td><td>JWT</td><td>None</td><td>{message}</td></tr>
+<tr><td>GET</td><td>/api/workouts/stats</td><td>JWT</td><td>None</td><td>{totalWorkouts, weeklyWorkouts, monthlyWorkouts, exerciseBreakdown, weeklyData, monthlyData}</td></tr>
+</table>
+<h4>8.1 Sample API Responses</h4>
+<p><strong>POST /api/auth/login — Success:</strong></p>
+<div class="cb">{
+  "message": "Login successful",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "_id": "65a1b2c3d4e5f6789012345",
+    "name": "Jatin",
+    "email": "jatin@example.com",
+    "goalType": "workouts",
+    "goalValue": 5,
+    "heightCm": 175,
+    "weightKg": 70
+  }
+}</div>
+<p><strong>GET /api/workouts/stats — Success:</strong></p>
+<div class="cb">{
+  "totalWorkouts": 42,
+  "weeklyWorkouts": 5,
+  "monthlyWorkouts": 18,
+  "exerciseBreakdown": [
+    { "_id": "Bench Press", "count": 12 },
+    { "_id": "Squat", "count": 10 }
+  ],
+  "weeklyData": [
+    { "_id": "2026-04-18", "totalVolume": 4500, "count": 3 }
+  ],
+  "monthlyData": [...]
+}</div>
+<div class="ft">Page 10 of 35</div>
+</div>
